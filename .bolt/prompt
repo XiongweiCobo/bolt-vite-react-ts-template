@@ -2,7 +2,149 @@ For all designs I ask you to make, have them be beautiful, not cookie cutter. Ma
 
 By default, this template supports JSX syntax with Tailwind CSS classes, React hooks, and Lucide React for icons. Do not install other packages for UI themes, icons, etc unless absolutely necessary or I request them.
 
-Use icons from lucide-react for logos.
+Use icons from antd for logos.
 
 Use stock photos from unsplash where appropriate, only valid URLs you know exist. Do not download the images, only link to them in image tags.
 
+Use Cobo UI Toolkit (or antd) for components.
+
+Here is the documentation for Cobo UI Toolkit:
+
+# Cobo-UI-Toolkit
+
+Cobo-UI-Toolkit is a set of UI components for Cobo products. It is built on top of [React](https://reactjs.org/) and [Ant Design](https://ant.design/). All components are based on Ant Design, but with some customizations, most APIs are the same as Ant Design (https://ant.design/components/overview-cn).
+
+## Installation
+
+1. install npm dependencies
+```bash
+npm install @cobo/cobo-ui-toolkit
+npm install antd
+```
+
+2. download fonts
+Download Poppins and Oxanium fonts (regular/meduim/semibold) from https://fonts.google.com/ and put them in `public/fonts`.
+
+## Usage
+
+1. use `ConfigProvider` to wrap your app. for example:
+    ```tsx
+    import { ConfigProvider } from '@cobo/cobo-ui-toolkit';
+    import { App } from './App';
+
+    function App() {
+        return (
+            <ConfigProvider>
+                <App />
+            </ConfigProvider>
+        );
+    }
+    ```
+2. use components from `@cobo/cobo-ui-toolkit`. eg:
+    ```tsx
+    import { Button } from '@cobo/cobo-ui-toolkit';
+
+    function App() {
+        return (
+            <Button>Click me</Button>
+        );
+    }
+    ```
+
+## Components
+
+### Button
+#### API
+
+##### Cobo 属性
+
+| 参数           | 说明                           | 类型           | 默认值    |
+| -------------- | ---------------------------- | -------------- | -------- |
+| autoLoading | 点击按钮后会显示 loading，等待 `onClick` 执行完毕后，loading 消失。如果设置了 `loading` 属性，则 `autoLoading` 无效。 | boolean | false |
+
+##### Antd 属性
+
+| 参数           | 说明                           | 类型           | 默认值    |
+| -------------- | ---------------------------- | -------------- | -------- |
+| type | 按钮类型，当设置 `variant` 与 `color` 时以后者为准 | `primary` \| `secondary` \| `dashed` \| `text` \| `link` | `primary` |
+| 其余参数       | [同 Button 组件的参数](https://ant.design/components/button-cn#api)   | - | - |
+
+#### Demo
+
+##### 基本使用
+
+通过 `type` 语法糖，使用预设的按钮样式：主按钮、次按钮、虚线按钮、文本按钮和链接按钮。推荐主按钮在同一个操作区域最多出现一次。**Cobo 默认的按钮是 `primary`**
+
+```tsx
+import { Button } from '@cobo/cobo-ui-toolkit';
+
+function App() {
+  return (
+    <div className="flex gap-2">
+      <Button>Primary Button</Button>
+      <Button type="secondary">Secondary Button</Button>
+      <Button type="dashed">Dashed Button</Button>
+      <Button type="text">Text Button</Button>
+      <Button type="link">Link Button</Button>
+    </div>
+  );
+}
+```
+
+### Select
+#### API
+
+| 参数           | 说明                           | 类型           | 默认值    |
+| -------------- | ---------------------------- | -------------- | -------- |
+| allowClear     | 是否允许清空                   | boolean        | true     |
+| menuItemSelectedIcon | 自定义多选时当前选中的条目图标，如果你通过 `optionRender` 自定义渲染了「选中图标」，需要把这个置为 `false`，否则有两个图标 | ReactNode | `<CheckOutlined />` |
+| 其余参数       | [同 Select 组件的参数](https://ant.design/components/select-cn#api)   | - | - |
+
+
+#### Demo
+
+##### 基本用法
+
+```tsx
+import { Select } from '@cobo/cobo-ui-toolkit';
+import { Space } from 'antd';
+
+const handleChange = (value: string) => {
+  console.log(`selected ${value}`);
+};
+
+const App: React.FC = () => (
+  <Space wrap>
+    <Select
+      defaultValue="lucy"
+      style={{ width: 120 }}
+      onChange={handleChange}
+      options={[
+        { value: 'jack', label: 'Jack' },
+        { value: 'lucy', label: 'Lucy' },
+        { value: 'Yiminghe', label: 'yiminghe' },
+        { value: 'disabled', label: 'Disabled', disabled: true },
+      ]}
+    />
+    <Select
+      defaultValue="lucy"
+      style={{ width: 120 }}
+      disabled
+      options={[{ value: 'lucy', label: 'Lucy' }]}
+    />
+    <Select
+      defaultValue="lucy"
+      style={{ width: 120 }}
+      loading
+      options={[{ value: 'lucy', label: 'Lucy' }]}
+    />
+    <Select
+      defaultValue="lucy"
+      style={{ width: 120 }}
+      allowClear
+      options={[{ value: 'lucy', label: 'Lucy' }]}
+      placeholder="select it"
+    />
+  </Space>
+);
+```

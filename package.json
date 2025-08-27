@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "lucide-react": "^0.344.0",
+    "@cobo/cobo-ui-toolkit": "^2.0.5",
+    "antd": "^5.27.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
