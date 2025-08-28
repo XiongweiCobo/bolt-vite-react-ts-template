@@ -149,7 +149,9 @@ const App: React.FC = () => (
 );
 ```
 
-# Use Tailwind Theme
+# Tailwind Theme
+
+Use the following theme for Tailwind CSS, eg. `<div className="text-gray_1 font-sm">text</div>`
 
 ```js
 theme: {
