@@ -256,6 +256,8 @@ Use the following theme for Tailwind CSS, eg. `<div className="text-gray_1 font-
 
 Usually, use `font-medium` instead of `font-ppM` and `font-ox font-medium instead of `font-oxM` because of the style `@font-face`. same as `font-ppB` and `font-oxB`.
 
+For currency amount, Use `font-ox`; use `font-pp` for other text.
+
 ```js
 theme: {
   extend: {
