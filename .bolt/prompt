@@ -50,7 +50,7 @@ npm install @ant-design/icons
 ```
 
 2. download fonts
-Download Poppins and Oxanium fonts (regular/meduim/semibold) from https://fonts.google.com/ and put them in `public/fonts`.
+Download Poppins and Oxanium fonts (regular/meduim/semibold) and put them in `public/fonts`.
 
 ## Usage
 
