@@ -14,6 +14,30 @@ Here is the documentation for Cobo UI Toolkit:
 
 Cobo-UI-Toolkit is a set of UI components for Cobo products. It is built on top of [React](https://reactjs.org/) and [Ant Design](https://ant.design/). All components are based on Ant Design, but with some customizations, most APIs are the same as Ant Design (https://ant.design/components/overview-cn).
 
+It includes:
+- Button
+- Select
+- Alert
+- Avatar
+- Card
+- Checkbox
+- Copy
+- DatePicker
+- Drawer
+- Dropdown
+- Input
+- Modal
+- Radio
+- Switch
+- Table
+- Tag
+- Tooltip
+- Loading
+- Spin
+- Message
+- Pagination
+- Tabs
+
 ## Installation
 
 1. install npm dependencies
