@@ -38,12 +38,15 @@ It includes:
 - Pagination
 - Tabs
 
+Other components can be imported from antd.
+
 ## Installation
 
 1. install npm dependencies
 ```bash
 npm install @cobo/cobo-ui-toolkit
 npm install antd
+npm install @ant-design/icons
 ```
 
 2. download fonts
